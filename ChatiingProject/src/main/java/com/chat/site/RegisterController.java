@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.chat.commons.CommandMap;
 
 @Controller
-public class MainController {
+public class RegisterController {
 	private static final Logger log = LoggerFactory.getLogger(MainController.class);
 	
 	/*@Autowired
@@ -36,9 +36,9 @@ public class MainController {
 	@Autowired
 	private SqlSessionTemplate  sqlSession;
 	
-	@RequestMapping(value = "/viewsql", method = RequestMethod.GET)
-	public ModelAndView testsql(Locale locale) {
-		log.info("Welcome home! The client locale is {}.", locale);
+	/*@RequestMapping(value = "/register.do", method = RequestMethod.GET)
+	public ModelAndView register(Locale locale) {
+		log.info("register.do");
 		CommandMap c=new CommandMap();
 		List<Map<String,Object>> list=null;
 		list=sqlSession.selectList("com.chat.mapper.select_list");
@@ -48,22 +48,11 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("/site/cust/cus");
 		mav.addObject("test","test");
 		return mav;
-	}
-	@RequestMapping(value="/tesetmap")
-    public ModelAndView testMapArgumentResolver(CommandMap commandMap) throws Exception{
-        ModelAndView mv = new ModelAndView("");
-        
-        System.out.println(commandMap.getMap());
-        
-        return mv;
-    }
-	@RequestMapping(value="/main")
-    public ModelAndView main(CommandMap commandMap) throws Exception{
-		log.debug("main");
-		
-		return new ModelAndView("/main");
-       }
+	}*/
 
-	
-	
+	@RequestMapping(value = "/register.do", method = RequestMethod.GET)
+	public ModelAndView register(Locale locale) {
+		log.info("register");
+		return new ModelAndView("register/user_register");
+	}	
 }

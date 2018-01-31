@@ -10,15 +10,15 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+<context:component-scan base-package="com.chat.*" />
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
-<!-- <annotation-driven>
+<annotation-driven>
         <argument-resolvers>
            <beans:bean class="com.chat.commons.CustomMapArgumentResolver"></beans:bean>       
         </argument-resolvers>
     </annotation-driven>
- -->
+
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
@@ -28,8 +28,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.chat.site" />
 	
+
 <!-- 	
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>

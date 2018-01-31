@@ -5,16 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd
   http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<websocket:handlers>
-		<websocket:mapping handler="chatHandler" path="/chat-ws" />
-	</websocket:handlers>
 
-	<bean id="chatHandler" class="com.chat.site.ChatHandler" />
+	<bean id="chatHandler" class="com.chat.socket.ChatHandler" />
 
 
-
-	<websocket:handlers>
+<websocket:handlers>
 		<websocket:mapping handler="chatHandler" path="/chat" />
+	    <websocket:handshake-interceptors>
+	    <bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+	    </websocket:handshake-interceptors>
 		<websocket:sockjs />
 	</websocket:handlers>
 	<mvc:default-servlet-handler />

@@ -1,4 +1,4 @@
-package com.chat.site;
+package com.chat.socket;
 import java.util.Date;
 
 import java.util.Map;
