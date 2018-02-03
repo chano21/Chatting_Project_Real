@@ -36,19 +36,22 @@ public class RegisterController {
 	@Autowired
 	private SqlSessionTemplate  sqlSession;
 	
-	/*@RequestMapping(value = "/register.do", method = RequestMethod.GET)
-	public ModelAndView register(Locale locale) {
-		log.info("register.do");
+	@RequestMapping(value = "/user_register.do", method = RequestMethod.GET)
+	public String user_register(Locale locale,CommandMap req) {
+		log.info("user_register.do");
+		
+		System.out.println("넘어온값들 : " + req.get("USER_ID"));
+		System.out.println("넘어온값들 : " + req);
+		
 		CommandMap c=new CommandMap();
 		List<Map<String,Object>> list=null;
 		list=sqlSession.selectList("com.chat.mapper.select_list");
 		System.out.println("list :"+list);
 		
 		DriverManagerDataSource d=new DriverManagerDataSource();
-		ModelAndView mav = new ModelAndView("/site/cust/cus");
-		mav.addObject("test","test");
-		return mav;
-	}*/
+
+		return "/main";
+	}
 
 	@RequestMapping(value = "/register.do", method = RequestMethod.GET)
 	public ModelAndView register(Locale locale) {

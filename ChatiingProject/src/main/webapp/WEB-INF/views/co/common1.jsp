@@ -12,6 +12,10 @@
 .left{
     float: left;
 }
+#sample4_postcode {
+	width: 30%;
+	display: inline;
+}
 
 
 </style>
